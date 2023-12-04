@@ -1,0 +1,32 @@
+reset_variations
+
+/Applications/MAMP/htdocs/wordpress/wp-content/plugins/woocommerce/templates/single-product/add-to-cart/variable.php
+
+
+wc_variation_form
+
+update_variation_values
+
+http://localhost/wordpress/wp-admin/admin.php?page=wc-admin&task=products
+http://localhost/wordpress/wp-admin/admin.php?page=wc-admin&task=products
+
+chon loai product
+
+
+get_regular_price
+
+Also in your hooked function save_variation_settings_fields() you are declaring 2 arguments, so there is one missing. It should be:
+
+//Save New Fields for Variation// Save Variation Settings
+add_action( 'woocommerce_save_product_variation', 'save_variation_settings_fields', 10, 2 );
+
+function save_variation_settings_fields( $variation_id, $i ) {
+    // Text Field
+    $text_field = $_POST['_text_field_date_expire'][ $variation_id ];
+    if( ! empty( $text_field ) ) {
+        update_post_meta( $variation_id, '_text_field_date_expire', esc_attr( $text_field ) );
+    }
+}
+regular_price
+
+get_variation_prices();
