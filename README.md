@@ -57,7 +57,7 @@ In the admin dashboard => Woocommerce => Settings => Currency options section, s
 From dashboard => Woocommerce menu => Account & Privacy tab => mark check into the checkbox "Allow customers to place orders without an account" then save this form.<br />
 
 <h5>4) Display a list of user orders in BO</h5>
-From admin dashboard => Woocommerce => Order menu <br />
+From admin dashboard => Woocommerce => Orders menu <br />
 Administrator can check the list order in this screen.
 
 
