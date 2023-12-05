@@ -7,13 +7,14 @@ function rss_update_product_variation_price(){
 
 	global $pagenow;
 	if($pagenow == 'post.php'){
-		if( ! is_rss_expired() ) return ;
+		// if( ! is_rss_expired() ) return ;
 
 		$product_id = isset($_GET['post']) ? $_GET['post'] : 0;
 		$post 		= get_post($product_id);
 		if( !$post || $post->post_type !== 'product'){  return; }
 
 		$kg_price = get_unit_price_of_product($product_id);
+
 
 		$args = array(
 		    'post_type'     => 'product_variation',

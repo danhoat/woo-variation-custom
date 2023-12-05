@@ -8,6 +8,7 @@ function get_unit_price_of_product($product_id){
 
  	$price = 0;
  	$terms = get_the_terms($product_id, 'pa_product_type');
+
 	if( $terms && !is_wp_error($terms) ){
 
 		$pricing = Woo_Rss_Dynamic_Price::get_pricing();
