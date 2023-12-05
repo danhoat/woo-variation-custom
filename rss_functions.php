@@ -55,7 +55,8 @@ function get_price_of_unit($kg_price, $unit){
  *
  **/
 function is_rss_expired(){
-	$timeout = get_option('_transient_timeout_'.Woo_Rss_Dynamic_Price::TRANS_PRICING, true);
+	$timeout = get_option(Woo_Rss_Dynamic_Price::RSS_EXPIRED_TIME, true);
+	$t = $timeout - time();
 	if( $timeout - time() < 0) return true;
 	return false;
 }

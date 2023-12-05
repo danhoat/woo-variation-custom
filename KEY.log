@@ -41,3 +41,5 @@ $product->get_price_html
 
 // add_filter('woocommerce_product_get_price','dev_filter_price');
 // add_filter('woocommerce_product_variation_get_regular_price','dev_filter_price');
+
+ number_format( $price, $args['decimals'], $args['decimal_separator'], $args['thousand_separator'] )
