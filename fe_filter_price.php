@@ -4,11 +4,14 @@ function rss_filter_variation_price($price, $variation){
 
 	if( ! is_rss_expired() ) return $price;
 
-	$product_id = $variation->parent_id;
-	$unit 		= strtoupper($variation->get_attribute('pa_unit'));
-	$kg_price 	= get_unit_price_of_product($product_id);
-	$unit_price = get_price_of_unit($kg_price, $unit);
-	return $unit_price;
+	if( $variation && $variation instanceof WC_Product_Variation ){
+		$product_id = $variation->get_parent_id();
+		$unit 		= strtoupper($variation->get_attribute('pa_unit'));
+		$kg_price 	= get_unit_price_of_product($product_id);
+		$unit_price = get_price_of_unit($kg_price, $unit);
+		return $unit_price;
+	}
+	return $price;
 }
 
 add_filter('woocommerce_product_variation_get_price','rss_filter_variation_price', 10 ,2);
@@ -37,4 +40,4 @@ function rss_filter_product_price($price, $object){
 	}
 	return $price;
 }
- add_filter( 'woocommerce_variable_price_html','rss_filter_product_price', 10 ,2);
+// add_filter( 'woocommerce_variable_price_html','rss_filter_product_price', 10 ,2);
