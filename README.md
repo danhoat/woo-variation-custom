@@ -21,7 +21,7 @@ Go to dashboard => producs tab => Attributes=> then insert 5 attributes for prod
     2.1) Add attribues: There is 5 attributes.\
 
     2.1.1  "Product Type" (Label: Product Type, slug: <b>product_type</b>). Insert 4 values for  this attribute(Gold, Palladium, Platinum, Silver).\
-    2.1.2)  Weight: (Label: Weight, Slug:<b>weight</b>) Insert 3 values for this attribues(g,kg,oz)\
+    2.1.2)  Weight: (Label: Weight, Slug:<b>weight</b>). Set popular values for this attribute(0.1g, 0.2g, 0.3g, 0.5g, 1kg, 2kg, 1oz, 2oz...)
     2.1.3)  Unit: (Label: Unit, Slug:<b>unit</b>) Insert 3 values for this attribues(g,kg,oz)\
     2.1.4)  Product Shape( Label: Product Shape. Slug: shape). Insert 3 values for this attribue( Bar, Ingot, Piece)\
     2.1.5)  Purity\
@@ -29,8 +29,10 @@ Go to dashboard => producs tab => Attributes=> then insert 5 attributes for prod
  2.2 Add product.\
  Insert 1 product and set Product data is Variabl Product.\
   Set attribute:\
-   Select Unit and set 3 values(G, KG, OZ) for 1 product. Check and set "Used for variations" for this attribue.\
-   Select Product Type and set 1 value only(Gold, Silver, Platium or Palladium).( No set - Used for variations)\
+   Select Product Type and set <b>only 1 value</b>(Gold, Silver, Platium or Palladium).( No set - Used for variations)\
+   Select Weight and set  1 or more for this attribue.  Make sure set  "Used for variations" If there are more than 2 values.
+   Select Unit and set 1 or more values for this attribute.Make sure set  "Used for variations" If there are more than 2 values.
+   
    Select Purity  and set 1 value only.( No set - Used for variations).\
    Variation tab:\
    Click the button Generate Variations then system auto create 3 sub post variation .\
