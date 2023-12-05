@@ -64,7 +64,7 @@ function debug_variations_price(){
 function rss_dev_debug(){
 	if( is_admin() ) return ;
 	echo '<pre>';
-	$gmt_time = date('d-m-y h:i:s', time());
+	$gmt_time = date('d-m-y H:i:s', time());
 	var_dump('GMT time:'.$gmt_time);
 	$local_time = current_time('mysql');
 	var_dump('Local time:'.$local_time);
@@ -91,4 +91,4 @@ function rss_dev_debug(){
 	echo '<br />0.3 oz of GOLD:'.$unit_price * 0.3;
 	echo '</pre>';
 }
-// add_action('init','rss_dev_debug');
+add_action('init','rss_dev_debug');

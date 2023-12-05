@@ -88,5 +88,5 @@ $GLOBALS['rss_pricing'] = new Woo_Rss_Dynamic_Price();
 
 
 if(RSS_PRICING_DEBUG){
-	require __DIR__ .'/rss_debug_only.php';
+	// require __DIR__ .'/rss_debug_only.php';
 }
