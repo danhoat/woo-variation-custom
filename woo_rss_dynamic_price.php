@@ -28,47 +28,50 @@ Class Woo_Rss_Dynamic_Price{
 	const   TRANS_PRICING 		= 'woo_rss_pricing';
 	const   TRANS_PRICING_TIME 	= 'woo_update_rss_time';
 	const 	LIST_METAL = array('OR','ARGENT','PLATINE','PALLADIUM');
+	const   RSS_FETCH_TIME	 	= 10*60;
 
 	function __construct(){
 	}
 
 	static function fetch_rss(){
 		$response 		= wp_remote_get(self::RSS_URL,   array('sslverify' => FALSE) );
-		$responseBody 	= wp_remote_retrieve_body( $response);
-    	$xml  			= simplexml_load_string($responseBody);
+		if ( is_array( $response ) && ! is_wp_error( $response ) ) {
+			$responseBody 	= wp_remote_retrieve_body( $response);
+	    	$xml  			= simplexml_load_string($responseBody);
+	    	$opt_values 	= array();
 
-    	$option_name 	= 'woo_rss_pricing';
+	    	foreach($xml->channel->item as $item=>$value){
 
-    	$opt_values 	= array();
-    	foreach($xml->channel->item as $item=>$value){
+	    		$title = $value->title->__toString();
 
-    		$title = $value->title->__toString();
+	    		$price1 = $price2 = '';
+	    		$info = explode('-', $title);
+	    		$name = strtoupper(trim($info[0]));
 
-    		$price1 = $price2 = '';
-    		$info = explode('-', $title);
-    		$name = strtoupper(trim($info[0]));
+	    		if( in_array($name, self::LIST_METAL) ){
 
-    		if( in_array($name, self::LIST_METAL) ){
+	    			$price_text = trim($info[1]);
+	    			if(isset($info[2])) $price_text =trim($info[2]);
+	    			$price_vs_unit = explode("fixing :", $price_text);
+	    			$price = substr($price_vs_unit[1], 0, -7);
+	    			$price = str_replace(',', '.', $price);
+	    			$opt_values[$name] = $price;
+	    		}
 
-    			$price_text = trim($info[1]);
-    			if(isset($info[2])) $price_text =trim($info[2]);
-    			$price_vs_unit = explode("fixing :", $price_text);
-    			$price = substr($price_vs_unit[1], 0, -7);
-    			$price = str_replace(',', '.', $price);
-    			$opt_values[$name] = $price;
-    		}
-
-    	}
-    	set_transient(self::TRANS_PRICING,$opt_values, 10*60);
-    	update_option(self::TRANS_PRICING_TIME, current_time('mysql'));
+	    	}
+	    	set_transient(self::TRANS_PRICING,$opt_values, self::RSS_FETCH_TIME);
+	    	update_option(self::TRANS_PRICING_TIME, current_time('mysql'));
+	    } else{
+	    	wp_die('can not fetch rss');
+	    }
 	}
 
 	static  function get_pricing(){
 
 		$values = get_transient(self::TRANS_PRICING);
-		//if (!$values) {
+		if (!$values) {
 			$values = self::fetch_rss();
-		//}
+		}
 		$values =  get_transient(self::TRANS_PRICING);
 		return (object) $values;
 
