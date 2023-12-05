@@ -7,9 +7,8 @@ function rss_update_product_variation_price(){
 
 	global $pagenow;
 	if($pagenow == 'post.php'){
-		$timeout = get_option('_transient_timeout_woo_rss_pricing', true);
-		if( $timeout - time() > 0 ) return ;
 
+		if( ! is_rss_expired() ) return ;
 
 		$product_id = isset($_GET['post']) ? $_GET['post'] : 0;
 		$post 		= get_post($product_id);
@@ -25,7 +24,6 @@ function rss_update_product_variation_price(){
 		    'order'         => 'asc',
 		    'post_parent'   => $product_id // get parent post-ID
 		);
-
 
 		$variations = get_posts( $args );
 

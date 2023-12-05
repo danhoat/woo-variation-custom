@@ -28,7 +28,9 @@ function get_unit_price_of_product($product_id){
 	}
 	return (float) $price;
 }
-
+/**
+ * return price of gam or oz base on price of 1 kg.
+ **/
 function get_price_of_unit($kg_price, $unit){
 
 	$unit_price = 0;
@@ -43,4 +45,14 @@ function get_price_of_unit($kg_price, $unit){
 		 	$unit_price = $kg_price;
 	}
 	return $unit_price;
+}
+
+/**
+ * only update price or filter price by rss  if rss is expired.
+ *
+ **/
+function is_rss_expired(){
+	$timeout = get_option('_transient_timeout_'.Woo_Rss_Dynamic_Price::TRANS_PRICING, true);
+	if( $timeout - time() < 0) return true;
+	return false;
 }

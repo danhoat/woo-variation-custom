@@ -1,6 +1,9 @@
 <?php
 
 function rss_filter_variation_price($price, $variation){
+
+	if( ! is_rss_expired() ) return $price;
+	
 	$product_id = $variation->parent_id;
 	$unit 		= strtoupper($variation->get_attribute('pa_unit'));
 	$kg_price 	= get_unit_price_of_product($product_id);
@@ -12,6 +15,7 @@ add_filter('woocommerce_product_variation_get_price','rss_filter_variation_price
 
 
 function rss_filter_product_price($price, $object){
+	if( ! is_rss_expired() ) return $price;
 	$prices = $object->get_variation_prices( true );
 
 	if ( empty( $prices['price'] ) ) {
