@@ -22,7 +22,7 @@ Go to dashboard => producs tab => Attributes=> then insert 5 attributes for prod
  There is 5 attributes.
 
 - Product Type (Label: Product Type, slug: <b>product_type</b>). Insert 4 values for  this attribute(Gold, Palladium, Platinum, Silver).\
-- Weight: (Label: Weight, Slug:<b>weight</b>). Set popular values for this attribute(0.1g, 0.2g, 0.3g, 0.5g, 1kg, 2kg, 1oz, 2oz...)
+- Weight: (Label: Weight, Slug:<b>weight</b>). Set popular values for this attribute(0.1, 0.2, 0.3, 0.5, 1, 2, 5, 10 ...)
 - Unit: (Label: Unit, Slug:<b>unit</b>) Insert 3 values for this attribues(g,kg,oz)
 - Product Shape( Label: Product Shape. Slug: shape). Insert 3 values for this attribue( Bar, Ingot, Piece)
 - Purity
@@ -35,11 +35,13 @@ Set attributes:<br />
 - Select Weight and set  1 or more valuesfor this attribue. Make sure set  "Used for variations" If there are more than 1 values.<br />
 - Select Unit and set 1 or more values for this attribute. Make sure set  "Used for variations" If there are more than 1 values.<br />
 - Select Purity  and set 1 value only.( No set - Used for variations).<br />
-Variation tab:<br />
-Click the button Generate Variations then system auto create 3 sub post variation .\
 
-  Save the post.\
-  Done.
+Variation tab:<br />
+Click the button Generate Variations then system auto create list variation post match with the variation set in the Attributes tab.
+in each the variation post edit form, make sure set correct the "weight" value of that post. 
+Ex: weight is 0.3, Unit G ==> weight is 0.3
+Save the post.<br />
+Done.
 
 3) Allow guest checkout.<br />
 From dashboard => Woocommerce menu => Account & Privacy tab => mark check into the checkbox "Allow customers to place orders without an account" then save this form.\
