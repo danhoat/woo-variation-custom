@@ -40,10 +40,10 @@ function get_price_of_unit($kg_price, $unit){
 	$unit_price = 0;
 	switch($unit){
 		case "G":
-				$unit_price = $kg_price/10;
-				break;
+			$unit_price = $kg_price*0.001;
+			break;
 		case "OZ":
-			$unit_price = 0.0283495231 * $kg_price;
+			$unit_price =  $kg_price*0.0283495231;
 			break;
 		 default:
 		 	$unit_price = $kg_price;
@@ -57,6 +57,8 @@ function get_price_of_unit($kg_price, $unit){
  **/
 function is_rss_expired(){
 	$timeout = get_option('_transient_timeout_'.Woo_Rss_Dynamic_Price::TRANS_PRICING, true);
+	$t =  $timeout - time();
+	var_dump($t);
 	if( $timeout - time() < 0 ) return true;
 	return false;
 }
