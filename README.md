@@ -22,12 +22,12 @@ Add attribues: There is 5 attributes.
 
 - "Product Type" (Label: Product Type, slug: <b>product_type</b>). Insert 4 values for  this attribute(Gold, Palladium, Platinum, Silver).\
 - Weight: (Label: Weight, Slug:<b>weight</b>). Set popular values for this attribute(0.1g, 0.2g, 0.3g, 0.5g, 1kg, 2kg, 1oz, 2oz...)
-- Unit: (Label: Unit, Slug:<b>unit</b>) Insert 3 values for this attribues(g,kg,oz)\
-- Product Shape( Label: Product Shape. Slug: shape). Insert 3 values for this attribue( Bar, Ingot, Piece)\
-- Purity\
+- Unit: (Label: Unit, Slug:<b>unit</b>) Insert 3 values for this attribues(g,kg,oz)
+- Product Shape( Label: Product Shape. Slug: shape). Insert 3 values for this attribue( Bar, Ingot, Piece)
+- Purity
 
-<h3>Add product.<h3>
- Insert 1 product and set Product data is Variabl Product.\
+<h3>Add product.</h3>
+ Insert 1 product and set Product data is Variabl Product.
   Set attribute:\
    Select Product Type and set <b>only 1 value</b>(Gold, Silver, Platium or Palladium).( No set - Used for variations)\
    Select Weight and set  1 or more for this attribue.  Make sure set  "Used for variations" If there are more than 2 values.
