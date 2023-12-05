@@ -1,6 +1,9 @@
 <?php
 
-
+/**
+ * get price of 1kg base on type product.
+ *
+ **/
 function get_unit_price_of_product($product_id){
 
  	$price = 0;
