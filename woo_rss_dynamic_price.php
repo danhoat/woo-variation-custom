@@ -4,12 +4,15 @@
  * @version 1.0
  */
 /*
-Plugin Name: Woo Rss Dynamic Price
-Plugin URI: http://abc.com
-Description:  Auto get pricing from cookson-clal.com rss then update price for product base on unit and product mental type.
-Author: Danng
-Version: 1.0
-Author URI: http://ma.tt/
+* Plugin Name: Woo Rss Dynamic Price
+* Plugin URI: http://abc.com
+* Description:  Auto get pricing from cookson-clal.com rss then update price for product base on unit and product mental type.
+* Author: Danng
+* Version: 1.0
+* Text Domain: rss_pricing
+* Requires at least: 6.3
+* Author URI: http://ma.tt/
+* Requires PHP: 7.4
 */
 defined( 'ABSPATH' ) || exit;
 
