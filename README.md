@@ -29,7 +29,7 @@ Go to dashboard => producs tab => Attributes=> then insert 5 attributes for prod
 
 <h5>Insert Product</h5>
 Insert 1 product and set Product data is <b>Variable Product</b>. <br />
-Set attribute:<br />
+Set attributes:<br />
 
 - Select Product Type and set <b>only 1 value</b>(Gold, Silver, Platium or Palladium).( No set - Used for variations)<br />
 - Select Weight and set  1 or more valuesfor this attribue. Make sure set  "Used for variations" If there are more than 1 values.<br />
