@@ -53,5 +53,7 @@ Done. <br />
 From dashboard => Woocommerce menu => Account & Privacy tab => mark check into the checkbox "Allow customers to place orders without an account" then save this form.<br />
 
 <h5>4) Display a list of user orders in BO</h5>
+From admin dashboard => Woocommerce => Order menu <br />
+Administrator can check the list order in this screen.
 
 
