@@ -6,15 +6,14 @@
 /*
 Plugin Name: Woo Rss Dynamic Price
 Plugin URI: http://abc.com
-Description:  auto get pricing from cookson rss then update price for product base on unit and product mental type.
+Description:  Auto get pricing from cookson-clal.com rss then update price for product base on unit and product mental type.
 Author: Danng
 Version: 1.0
 Author URI: http://ma.tt/
 */
 
 define('IS_AUTOMATIC_PRICING', true);
-add_filter('https_ssl_verify', '__return_false');
-
+define('RSS_DEBUG', true);
 
 require __DIR__ .'/rss_functions.php';
 require __DIR__ .'/fe_filter_price.php';
@@ -31,6 +30,7 @@ Class Woo_Rss_Dynamic_Price{
 	const   RSS_FETCH_TIME	 	= 10*60;
 
 	function __construct(){
+
 	}
 
 	static function fetch_rss(){
@@ -43,8 +43,6 @@ Class Woo_Rss_Dynamic_Price{
 	    	foreach($xml->channel->item as $item=>$value){
 
 	    		$title = $value->title->__toString();
-
-	    		$price1 = $price2 = '';
 	    		$info = explode('-', $title);
 	    		$name = strtoupper(trim($info[0]));
 
@@ -56,13 +54,16 @@ Class Woo_Rss_Dynamic_Price{
 	    			$price = substr($price_vs_unit[1], 0, -7);
 	    			$price = str_replace(',', '.', $price);
 	    			$opt_values[$name] = $price;
+
 	    		}
 
 	    	}
 	    	set_transient(self::TRANS_PRICING,$opt_values, self::RSS_FETCH_TIME);
 	    	update_option(self::TRANS_PRICING_TIME, current_time('mysql'));
-	    } else{
-	    	wp_die('can not fetch rss');
+	    } else {
+	    	if(RSS_DEBUG){
+	    		wp_die('can not fetch rss');
+	    	}
 	    }
 	}
 
