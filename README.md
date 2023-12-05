@@ -27,7 +27,7 @@ Go to dashboard => producs tab => Attributes=> then insert 5 attributes for prod
 - Product Shape( Label: Product Shape. Slug: shape). Insert 3 values for this attribue( Bar, Ingot, Piece)
 - Purity
 
-<h5>Add product.</h5>
+<h5>Insert Product.</h5>
  Insert 1 product and set Product data is <b>Variable Product</b>. <br />
   Set attribute:<br />
    -Select Product Type and set <b>only 1 value</b>(Gold, Silver, Platium or Palladium).( No set - Used for variations)<br />
