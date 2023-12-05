@@ -8,7 +8,8 @@ Allow system auto update price from rss link: https://www.cookson-clal.com/mp/rs
 
 Enviroment:\
 PHP 8.1\
-WordPress 6.4.1, Woocommerce version  8.3.1.\
+WordPress 6.4.1, Woocommerce version  8.3.1.
+Currency: 
 
 
 
@@ -46,6 +47,9 @@ The value of weight is 0.3, Unit KG ==> The value of  'Weight (kg)' field is 0.3
 
 Save the post.<br />
 Done. <br />
+Setup Currency:<br />
+Rss of the site cookson-clal.com  support euro currency so we have to set currency of the site to " Euro (€)".
+In the admin dashboard => Woocommerce => Settings => Currency options section, select "Euro (€)" then save.
 
 <h5>3) Allow guest checkout.</h5>
 
