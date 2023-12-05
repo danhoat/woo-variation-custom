@@ -39,9 +39,9 @@ Variation tab:<br />
 Click the button Generate Variations then system auto create 3 sub post variation .\
 
   Save the post.\
-  Done.\
+  Done.
 
-  3) Allow guest checkout.\
-  From dashboard => Woocommerce menu => Account & Privacy tab => mark check into the checkbox "Allow customers to place orders without an account" then save this form.\
+3) Allow guest checkout.<br />
+From dashboard => Woocommerce menu => Account & Privacy tab => mark check into the checkbox "Allow customers to place orders without an account" then save this form.\
 
 
