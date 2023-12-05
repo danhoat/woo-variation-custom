@@ -15,7 +15,7 @@ WordPress 6.4.1, Woocommerce version  8.3.1.\
 <h2>Step by step:</h2>
 
 1) Setup a WordPress site + install/activate 2 plugins(woocommerce and Woo Rss Dynamic Price).
-2) Create product and attributes.
+2) Create product and attributes.\
 Go to dashboard => producs tab => Attributes=> then create 4 attributes for products on this menu.\
  2.1) Add attribues: There is 4 attributes.\
  2.1.1  "Product Type" (Label: Product Type, slug: product_type). Insert 4 values for  this attribute(Gold, Palladium, Platinum, Silver).\
