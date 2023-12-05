@@ -6,11 +6,14 @@ function rss_filter_variation_price($price, $variation){
 
 	if( $variation && $variation instanceof WC_Product_Variation ){
 		$product_id = $variation->get_parent_id();
-		$unit 		= strtoupper($variation->get_attribute('pa_unit'));
 		$kg_price 	= get_unit_price_of_product($product_id);
+
+		$unit 		= strtoupper($variation->get_attribute('pa_unit'));
 		$unit_price = get_price_of_unit($kg_price, $unit);
-		//delete_transient('wc_var_prices_'.$product_id);
-		return $unit_price;
+		$weight 	= (float) $variation->get_attribute('weight');
+		delete_transient('wc_var_prices_'.$product_id);
+		$variation_price = $weight*$unit_price;
+		return $variation_price;
 
 	}
 	return $price;

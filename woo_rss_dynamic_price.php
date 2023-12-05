@@ -11,14 +11,14 @@ Author: Danng
 Version: 1.0
 Author URI: http://ma.tt/
 */
+defined( 'ABSPATH' ) || exit;
 
-define('IS_AUTOMATIC_PRICING', true);
-define('RSS_DEBUG', true);
+define('RSS_PRICING_DEBUG', true);
+
 
 require __DIR__ .'/rss_functions.php';
 require __DIR__ .'/fe_filter_price.php';
 require __DIR__ .'/admin_update_pricing.php';
-// require __DIR__ .'/dev_debug_only.php';
 
 Class Woo_Rss_Dynamic_Price{
 
@@ -26,13 +26,16 @@ Class Woo_Rss_Dynamic_Price{
 	const   TRANS_PRICING 		= 'woo_rss_pricing';
 	const   TRANS_PRICING_TIME 	= 'woo_update_rss_time';
 	const 	LIST_METAL 			= array('OR','ARGENT','PLATINE','PALLADIUM');
-	const   RSS_FETCH_SECOND	 = 10*60;
+	const   RSS_FETCH_SECOND	 = 1*60;
 	function __construct(){
 
 	}
 
-	static function fetch_rss(){
-		$response 		= wp_remote_get(self::RSS_URL,   array('sslverify' => FALSE) );
+	static function fetch_rss($log_time = 1){
+
+		$response 	= wp_remote_get(self::RSS_URL,   array('sslverify' => FALSE) );
+
+
 		if ( is_array( $response ) && ! is_wp_error( $response ) ) {
 			$responseBody 	= wp_remote_retrieve_body( $response);
 	    	$xml  			= simplexml_load_string($responseBody);
@@ -47,7 +50,7 @@ Class Woo_Rss_Dynamic_Price{
 	    		if( in_array($name, self::LIST_METAL) ){
 
 	    			$price_text = trim($info[1]);
-	    			if(isset($info[2])) $price_text =trim($info[2]);
+	    			if( isset($info[2]) && self::get_price_base_time()  == 2){ $price_text =trim($info[2]); }
 	    			$price_vs_unit = explode("fixing :", $price_text);
 	    			$price = substr($price_vs_unit[1], 0, -7);
 	    			$price = str_replace(',', '.', $price);
@@ -55,6 +58,9 @@ Class Woo_Rss_Dynamic_Price{
 	    		}
 	    	}
 	    	set_transient(self::TRANS_PRICING, $opt_values, self::RSS_FETCH_SECOND);
+	    	if($log_time){
+	    		update_option('rss_update_time_log', current_time('mysql') );
+	    	}
 	    	return $opt_values;
 	    } else {
 	    	if(RSS_DEBUG){ wp_die('can not fetch rss'); }
@@ -67,9 +73,20 @@ Class Woo_Rss_Dynamic_Price{
 		if (!$values) {
 			$values = self::fetch_rss();
 		}
-
 		return (object) $values;
-
+	}
+	static function get_price_base_time(){
+		$gmt_hour 	= date("H", time());
+		$gmt_minute = date("i", time());
+		if($gmt_hour >= 15) return 2;
+		if( $gmt_hour < 10) return 2;
+		if($gmt_hour == 10 && $gmt_minute  <= 30 ) return 2;
+		return 1;
 	}
 }
-new Woo_Rss_Dynamic_Price();
+$GLOBALS['rss_pricing'] = new Woo_Rss_Dynamic_Price();
+
+
+if(RSS_PRICING_DEBUG){
+	require __DIR__ .'/rss_debug_only.php';
+}

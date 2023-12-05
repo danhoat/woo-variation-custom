@@ -4,6 +4,8 @@
  * get price of 1kg base on type product.
  *
  **/
+
+
 function get_unit_price_of_product($product_id){
 
  	$price = 0;
@@ -38,6 +40,7 @@ function get_unit_price_of_product($product_id){
 function get_price_of_unit($kg_price, $unit){
 
 	$unit_price = 0;
+	$unit = strtoupper($unit);
 	switch($unit){
 		case "G":
 			$unit_price = $kg_price*0.001;
@@ -48,6 +51,28 @@ function get_price_of_unit($kg_price, $unit){
 		 default:
 		 	$unit_price = $kg_price;
 	}
+	return $unit_price;
+}
+
+function get_price_of_metal_unit($metal = 'gold', $unit = 'kg'){
+	$pricing = Woo_Rss_Dynamic_Price::get_pricing();
+	$metal = strtoupper($metal);
+	$kg_price = 0;
+	switch ($metal) {
+		case "GOLD":
+			$kg_price = $pricing->OR;
+			break;
+		case "SILVER":
+			$kg_price = $pricing->ARGENT;
+			break;
+		case "PLATINUM":
+			$kg_price = $pricing->PLATINE;
+			break;
+		case "PALLADIUM":
+			$kg_price = $pricing->PALLADIUM;
+			break;
+	}
+	$unit_price = get_price_of_unit($kg_price, $unit);
 	return $unit_price;
 }
 
