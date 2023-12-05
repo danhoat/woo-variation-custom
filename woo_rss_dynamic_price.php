@@ -26,7 +26,7 @@ Class Woo_Rss_Dynamic_Price{
 	const   TRANS_PRICING_OPT 	= 'woo_rss_pricing';
 	const   TRANS_PRICING 		= 'woo_rss_pricing';
 	const   TRANS_PRICING_TIME 	= 'woo_update_rss_time';
-	const 	LIST_METAL = array('OR','ARGENT','PLATINE','PALLADIUM');
+	const 	LIST_METAL 			= array('OR','ARGENT','PLATINE','PALLADIUM');
 	const   RSS_FETCH_TIME	 	= 10*60;
 
 	function __construct(){
@@ -54,16 +54,12 @@ Class Woo_Rss_Dynamic_Price{
 	    			$price = substr($price_vs_unit[1], 0, -7);
 	    			$price = str_replace(',', '.', $price);
 	    			$opt_values[$name] = $price;
-
 	    		}
-
 	    	}
-	    	set_transient(self::TRANS_PRICING,$opt_values, self::RSS_FETCH_TIME);
+	    	set_transient(self::TRANS_PRICING, $opt_values, self::RSS_FETCH_TIME);
 	    	update_option(self::TRANS_PRICING_TIME, current_time('mysql'));
 	    } else {
-	    	if(RSS_DEBUG){
-	    		wp_die('can not fetch rss');
-	    	}
+	    	if(RSS_DEBUG){ wp_die('can not fetch rss'); }
 	    }
 	}
 
