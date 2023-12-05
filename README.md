@@ -48,7 +48,7 @@ The value of weight is 0.3, Unit KG ==> The value of  'Weight (kg)' field is 0.3
 Save the post.<br />
 <b>Note: </b>
 Setup Currency:<br />
-Rss of the site cookson-clal.com  support euro currency so we have to set currency of the site to "<b> Euro (€)</b>".
+Rss of the site cookson-clal.com  supports euro currency so we have to set currency of the site to "<b> Euro (€)</b>".
 In the admin dashboard => Woocommerce => Settings => Currency options section, select "Euro (€)" then save.
 
 <h5>3) Allow guest checkout.</h5>
