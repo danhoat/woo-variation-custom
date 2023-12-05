@@ -10,7 +10,7 @@ Enviroment:\
 PHP 8.1 \
 WordPress 6.4.1, Woocommerce version  8.3.1.\
 \
-\
+
 
 <h2>Step by step:</h2>
 
@@ -21,6 +21,6 @@ Go to dashboard => producs tab => Attributes=> then create 4 attributes for prod
  2.1.1  "Product Type" (Label: Product Type, slug: product_type). Insert 4 values for  this attribute(Gold, Palladium, Platinum, Silver).\
  2.1.2)  Unit: (Label: Unit, Slug:unit) Insert 3 values for this attribues(g,kg,oz)\
  2.1.3)  Product Shape( Label: Product Shape. Slug: shape). Insert 3 values for this attribue( Bar, Ingot, Piece)\
- 2.1.4)  Purity \
+ 2.1.4)  Purity\
 
  2.2 Add product.
