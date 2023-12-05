@@ -32,7 +32,8 @@ Go to dashboard => producs tab => Attributes=> then create 4 attributes for prod
    Variation tab:\
    Click the button Generate Variations then system auto create 3 sub post variation .\
 
-  Save the post.\ Done.
+  Save the post.\ 
+  Done.\
 
   3) Allow guest checkout.\
   From dashboard => Woocommerce menu => Account & Privacy tab => mark check into the checkbox "Allow customers to place orders without an account" then save this form.\
