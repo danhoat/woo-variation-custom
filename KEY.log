@@ -1,3 +1,6 @@
+Argent   - 1er fixing : 744,61 €/ kg  ==> bạc
+Or   - 1er fixing : 61177,32 €/ kg    ==> vàng
+
 reset_variations
 
 /Applications/MAMP/htdocs/wordpress/wp-content/plugins/woocommerce/templates/single-product/add-to-cart/variable.php
@@ -30,3 +33,11 @@ function save_variation_settings_fields( $variation_id, $i ) {
 regular_price
 
 get_variation_prices();
+
+
+$product->get_price_html
+
+
+
+// add_filter('woocommerce_product_get_price','dev_filter_price');
+// add_filter('woocommerce_product_variation_get_regular_price','dev_filter_price');
