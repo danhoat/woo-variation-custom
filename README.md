@@ -39,7 +39,8 @@ Set attributes:<br />
 Variation tab:<br />
 Click the button Generate Variations then system auto create list variation post match with the variation set in the Attributes tab.
 in each the variation post edit form, make sure set correct the "weight" value of that post. 
-Ex: weight is 0.3, Unit G ==> weight is 0.3
+Ex: weight is 0.3, Unit G ==> weight is 0.3<br />
+weight is 0.3, Unit KG ==> weight is 0.3
 Save the post.<br />
 Done.
 
