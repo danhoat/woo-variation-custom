@@ -46,7 +46,7 @@ The value of weight in the dropdown is 0.3, Unit G ==> The value of 'Weight (kg)
 The value of weight is 0.3, Unit KG ==> The value of  'Weight (kg)' field is 0.3<br />
 
 Save the post.<br />
-Done. <br />
+<b>Note: </b>
 Setup Currency:<br />
 Rss of the site cookson-clal.com  support euro currency so we have to set currency of the site to " Euro (€)".
 In the admin dashboard => Woocommerce => Settings => Currency options section, select "Euro (€)" then save.
