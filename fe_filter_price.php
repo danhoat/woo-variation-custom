@@ -9,7 +9,7 @@ function rss_filter_variation_price($price, $variation){
 		$unit 		= strtoupper($variation->get_attribute('pa_unit'));
 		$kg_price 	= get_unit_price_of_product($product_id);
 		$unit_price = get_price_of_unit($kg_price, $unit);
-		delete_transient('wc_var_prices_'.$product_id);
+		//delete_transient('wc_var_prices_'.$product_id);
 		return $unit_price;
 
 	}

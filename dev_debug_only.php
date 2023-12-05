@@ -33,3 +33,34 @@ function dev_debug(){
 	}
 
 }
+
+function debug_variations_price(){
+	$product_id = 14;
+	$args = array(
+	    'post_type'     => 'product_variation',
+	    'post_status'   => array( 'private', 'publish' ),
+	    'numberposts'   => -1,
+	    'orderby'       => 'menu_order',
+	    'order'         => 'asc',
+	    'post_parent'   => $product_id // get parent post-ID
+	);
+	$variations = get_posts( $args );
+
+	foreach ( $variations as $variation ) {
+
+	    // get variation ID
+	    $variation_ID = $variation->ID;
+
+	    // get variations meta
+	    $product_variation = new WC_Product_Variation( $variation_ID );
+	   $price = $product_variation->get_price();
+	   echo '<pre>';
+	   var_dump($variation_ID);
+	   var_dump($price);
+	   echo '</pre>';
+	}
+}
+function rss_dev_debug(){
+	debug_variations_price();
+}
+add_action('init','rss_dev_debug');
