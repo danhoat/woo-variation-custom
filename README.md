@@ -60,4 +60,6 @@ From dashboard => Woocommerce menu => Account & Privacy tab => mark check into t
 From admin dashboard => Woocommerce => Orders menu <br />
 Administrator can check the list order in this screen.
 
+Finally: to create a new product. we should use the function dublicate that shows in the list products. After duplicate 1 product. we can edit and update it..
 
+<span style ="text-align:right"> HCM Dec 05, 2023</span>
