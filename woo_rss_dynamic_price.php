@@ -27,8 +27,6 @@ Class Woo_Rss_Dynamic_Price{
 	const   TRANS_PRICING_TIME 	= 'woo_update_rss_time';
 	const 	LIST_METAL 			= array('OR','ARGENT','PLATINE','PALLADIUM');
 	const   RSS_FETCH_SECOND	 = 10*60;
-	const 	RSS_EXPIRED_TIME    = 'rss_expired_time';
-
 	function __construct(){
 
 	}
@@ -57,7 +55,7 @@ Class Woo_Rss_Dynamic_Price{
 	    		}
 	    	}
 	    	set_transient(self::TRANS_PRICING, $opt_values, self::RSS_FETCH_SECOND);
-	    	update_option(self::RSS_EXPIRED_TIME, time() + self::RSS_FETCH_SECOND);
+	    	return $opt_values;
 	    } else {
 	    	if(RSS_DEBUG){ wp_die('can not fetch rss'); }
 	    }
@@ -69,7 +67,7 @@ Class Woo_Rss_Dynamic_Price{
 		if (!$values) {
 			$values = self::fetch_rss();
 		}
-		$values =  get_transient(self::TRANS_PRICING);
+
 		return (object) $values;
 
 	}
