@@ -48,6 +48,10 @@ Save the post.<br />
 Done. <br />
 
 <h5>3) Allow guest checkout.</h5>
-From dashboard => Woocommerce menu => Account & Privacy tab => mark check into the checkbox "Allow customers to place orders without an account" then save this form.\
+
+
+From dashboard => Woocommerce menu => Account & Privacy tab => mark check into the checkbox "Allow customers to place orders without an account" then save this form.<br />
+
+<h5>4) Display a list of user orders in BO</h5>
 
 
