@@ -35,19 +35,19 @@ Set attributes:<br />
 - Select Weight and set  1 or more valuesfor this attribue. Make sure set  "Used for variations" If there are more than 1 values.<br />
 - Select Unit and set 1 or more values for this attribute. Make sure set  "Used for variations" If there are more than 1 values.<br />
 - Select Purity  and set 1 value only.( No set - Used for variations).<br />
-
+- Sett "Visible on the product page" for all  attributes.
 Variation tab:<br />
-Click the button Generate Variations then system auto create list variation post match with the variation set in the Attributes tab.
-in each the variation post edit form, make sure set correct the "weight" value of that post.<br />
+Click the button 'Generate Variations' to system auto create a list variation post match with the the variations.
+In each the variation post edit form, make sure set correct the "weight" value of that post.<br />
 
 Ex:<br />
-weight in the dropdown is 0.3, Unit G ==> The value of 'Weight (kg)' is 0.3<br />
-weight is 0.3, Unit KG ==> The value of  'Weight (kg)' field is 0.3<br />
+The value of weight in the dropdown is 0.3, Unit G ==> The value of 'Weight (kg)' is 0.3<br />
+The value of weight is 0.3, Unit KG ==> The value of  'Weight (kg)' field is 0.3<br />
 
 Save the post.<br />
-Done.
+Done. <br />
 
-3) Allow guest checkout.<br />
+<h5>3) Allow guest checkout.</h5>
 From dashboard => Woocommerce menu => Account & Privacy tab => mark check into the checkbox "Allow customers to place orders without an account" then save this form.\
 
 
