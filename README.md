@@ -15,7 +15,7 @@ WordPress 6.4.1, Woocommerce version  8.3.1.\
 <h2>Step by step:</h2>
 
 1) Setup a WordPress site + install/activate 2 plugins(woocommerce and Woo Rss Dynamic Price).
-2) Create product and attributes.\
+2) Insert  attributes and product.
 Go to dashboard => producs tab => Attributes=> then insert 5 attributes for products on this menu.\
 
 Add attribues: There is 5 attributes.
