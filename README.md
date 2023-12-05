@@ -6,10 +6,12 @@ Plugin:  Woo Rss Dynamic Price;
 
 Allow system auto update price from rss link: https://www.cookson-clal.com/mp/rss_mpfr_cdl.jsp
 
-Enviroment:
-PHP 8.1
-WordPress 6.4.1, Woocommerce version  8.3.1./
-/
+Enviroment:\
+PHP 8.1 \
+WordPress 6.4.1, Woocommerce version  8.3.1.\
+\
+\
+
 <h2>Step by step:</h2>
 
 1) Setup a WordPress site + install/activate 2 plugins(woocommerce and Woo Rss Dynamic Price).
